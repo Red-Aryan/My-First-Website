@@ -1,19 +1,607 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime story</title>
+
+    <title>Anime Stories | REDARYAN</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(5, 5, 15, 0.78),
+                    rgba(5, 5, 15, 0.94)
+                ),
+                url("./Wall paper 3.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(10, 10, 20, 0.65);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            color: #00ff88;
+
+            text-shadow:
+                0 0 10px #00ff88,
+                0 0 25px #00ff88;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 70px auto;
+        }
+
+
+        /* TITLE */
+
+        .title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title h1 {
+            font-size: clamp(40px, 7vw, 70px);
+            margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #00ff88,
+                    #00cfff
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title p {
+            color: #aaa;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+
+        /* STORY GRID */
+
+        .story-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+        }
+
+
+        /* STORY CARD */
+
+        .story-card {
+            padding: 30px 25px;
+
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 20px;
+
+            transition: 0.35s;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            background: #00ff88;
+
+            filter: blur(70px);
+
+            opacity: 0;
+
+            top: -30px;
+            right: -30px;
+
+            transition: 0.4s;
+        }
+
+        .story-card:hover::before {
+            opacity: 0.25;
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+
+            border-color: #00ff88;
+
+            box-shadow:
+                0 0 30px rgba(0,255,136,0.2);
+        }
+
+
+        /* NUMBER */
+
+        .number {
+            font-size: 14px;
+            color: #00ff88;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* STORY ICON */
+
+        .story-icon {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+
+        /* STORY TITLE */
+
+        .story-card h2 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+
+        /* DESCRIPTION */
+
+        .story-card p {
+            color: #aaa;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* READ BUTTON */
+
+        .read-btn {
+            display: inline-block;
+
+            padding: 11px 22px;
+
+            background: #00ff88;
+
+            color: #050505;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .read-btn:hover {
+            transform: scale(1.05);
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.6);
+        }
+
+
+        /* NAVIGATION */
+
+        .navigation {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            margin-top: 60px;
+        }
+
+        .nav-button {
+            padding: 13px 25px;
+
+            border: 1px solid #00ff88;
+
+            border-radius: 30px;
+
+            color: #00ff88;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #00ff88;
+            color: #050505;
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.5);
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 80px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: #777;
+
+            background: rgba(0,0,0,0.45);
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+        }
+
+        footer strong {
+            color: #00ff88;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 50px auto;
+            }
+
+            .navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-    <h1>Anime story :-</h1>
-    <hr>
-    <ol>
-        <li><a href="./Howl.html">Howl's The Moving Castle</a></li>
-        <li><a href="./yourname.html">Your Name</a></li>
-        <li><a href="./5cm Per second.html">5 Centimeter per second</a></li>
-        <li><a href="./silent voice.html">Silent Voice</a></li>
-        <li><a href="./I want to eat your pancrese.html">I WantTo Eat Your pancrease</a></li>
-  </ol>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            REDARYAN
+        </div>
+
+        <div>
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./animewallpaper.html">
+                Wallpapers
+            </a>
+
+            <a href="./Contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+
+        <!-- TITLE -->
+
+        <div class="title">
+
+            <h1>
+                Anime Stories
+            </h1>
+
+            <p>
+                Explore emotional, beautiful and unforgettable
+                anime stories.
+            </p>
+
+        </div>
+
+
+
+        <!-- STORIES -->
+
+        <div class="story-grid">
+
+
+            <!-- STORY 1 -->
+
+            <div class="story-card">
+
+                <div class="number">
+                    STORY 01
+                </div>
+
+                <div class="story-icon">
+                    🏰
+                </div>
+
+                <h2>
+                    Howl's Moving Castle
+                </h2>
+
+                <p>
+                    Enter a magical world filled with
+                    mysterious castles, powerful magic
+                    and an unforgettable journey.
+                </p>
+
+                <a
+                    href="./Howl.html"
+                    class="read-btn"
+                >
+                    Read Story →
+                </a>
+
+            </div>
+
+
+
+            <!-- STORY 2 -->
+
+            <div class="story-card">
+
+                <div class="number">
+                    STORY 02
+                </div>
+
+                <div class="story-icon">
+                    ☄️
+                </div>
+
+                <h2>
+                    Your Name
+                </h2>
+
+                <p>
+                    A beautiful story about two people,
+                    mysterious connections and a bond
+                    that crosses time and distance.
+                </p>
+
+                <a
+                    href="./yourname.html"
+                    class="read-btn"
+                >
+                    Read Story →
+                </a>
+
+            </div>
+
+
+
+            <!-- STORY 3 -->
+
+            <div class="story-card">
+
+                <div class="number">
+                    STORY 03
+                </div>
+
+                <div class="story-icon">
+                    🌸
+                </div>
+
+                <h2>
+                    5 Centimeters per Second
+                </h2>
+
+                <p>
+                    A touching story about distance,
+                    memories, time and the way people
+                    slowly change as life moves forward.
+                </p>
+
+                <a
+                    href="./5cm Per second.html"
+                    class="read-btn"
+                >
+                    Read Story →
+                </a>
+
+            </div>
+
+
+
+            <!-- STORY 4 -->
+
+            <div class="story-card">
+
+                <div class="number">
+                    STORY 04
+                </div>
+
+                <div class="story-icon">
+                    🎹
+                </div>
+
+                <h2>
+                    A Silent Voice
+                </h2>
+
+                <p>
+                    A powerful story about friendship,
+                    mistakes, forgiveness and finding
+                    the courage to move forward.
+                </p>
+
+                <a
+                    href="./silent voice.html"
+                    class="read-btn"
+                >
+                    Read Story →
+                </a>
+
+            </div>
+
+
+
+            <!-- STORY 5 -->
+
+            <div class="story-card">
+
+                <div class="number">
+                    STORY 05
+                </div>
+
+                <div class="story-icon">
+                    🌻
+                </div>
+
+                <h2>
+                    I Want to Eat Your Pancreas
+                </h2>
+
+                <p>
+                    A deeply emotional story about
+                    friendship, life, memories and
+                    appreciating every moment.
+                </p>
+
+                <a
+                    href="./I want to eat your pancrese.html"
+                    class="read-btn"
+                >
+                    Read Story →
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NAVIGATION BUTTONS -->
+
+        <div class="navigation">
+
+            <a
+                href="./index.html"
+                class="nav-button"
+            >
+                ← Back to Homepage
+            </a>
+
+            <a
+                href="./animewallpaper.html"
+                class="nav-button"
+            >
+                Anime Wallpapers →
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026
+        <strong>REDARYAN</strong>
+        — Anime World
+
+    </footer>
+
+
 </body>
+
 </html>
+```
