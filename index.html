@@ -1,34 +1,515 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-    
-    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REDARYAN WEBSITE</title>
+
+    <title>REDARYAN | Anime World</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(5, 5, 15, 0.72),
+                    rgba(5, 5, 15, 0.90)
+                ),
+                url("./Wall paper 3.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(10, 10, 20, 0.65);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #00ff88;
+
+            text-shadow:
+                0 0 10px #00ff88,
+                0 0 25px #00ff88;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 85vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            padding: 50px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero img {
+            width: min(600px, 90%);
+            margin-bottom: 25px;
+
+            filter:
+                drop-shadow(0 0 15px rgba(0,255,136,0.35));
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 75px);
+            margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #00ff88,
+                #00cfff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #cfcfcf;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #00ff88;
+            color: #050505;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 0 15px rgba(0,255,136,0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.03);
+
+            box-shadow:
+                0 0 25px rgba(0,255,136,0.8);
+        }
+
+
+        /* GENERAL SECTION */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #00ff88;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #aaa;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
+        }
+
+
+        /* ABOUT */
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+
+            padding: 35px;
+
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .about-box p {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+
+        /* CONTENT CARDS */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 25px;
+
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 35px 25px;
+
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            transition: 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+
+            border-color: #00ff88;
+
+            box-shadow:
+                0 0 25px rgba(0,255,136,0.18);
+        }
+
+        .card-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            background: rgba(0,0,0,0.5);
+
+            border-top: 1px solid rgba(255,255,255,0.1);
+
+            color: #888;
+        }
+
+        footer strong {
+            color: #00ff88;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 65px 5%;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+    </style>
 </head>
-<style>
-body{background-image: url(./Wall\ paper\ 3.jpg);}
-</style>
-<body style="text-align: center;">
-   <style width:;></style>
-    <h1 style= "background-color: rgb(106, 255, 0); color: #fdfafa;">Welcome to my website </h1>
-    <hr>
-    <img src="./home_page_4-removebg-preview.png">
-    <hr>
-    <h2 style="background-color: #006efe;">About :-</h2>
-    <ul>
-        <li style="color: hsl(0, 0%, 0%);">This website is only made for fun purpose </li>
-        <li>I only upload anime related content on this website</li>
-    </ul>
-    <hr>
-    <h2 style="background-color: #006efe;">Contents :-</h2>
-    <ol>
-        <li><a href="./animewallpaper.html">Anime wallpaper</a></li>
-        <li><a href="./animestory.html">Anime story</a></li>
-        <li><a href="./Contact.html">Contact me</a></li>
-    </ol>
-    
+
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            REDARYAN
+        </div>
+
+        <ul>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#contents">Contents</a>
+            </li>
+
+            <li>
+                <a href="./Contact.html">Contact</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <img
+                src="./home_page_4-removebg-preview.png"
+                alt="REDARYAN Logo"
+            >
+
+            <h1>
+                Welcome to REDARYAN
+            </h1>
+
+            <p>
+                Enter the world of anime, stories and wallpapers.
+                Discover a collection created for anime lovers.
+            </p>
+
+            <a href="#contents" class="btn">
+                Explore Now →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+            About <span>REDARYAN</span>
+        </h2>
+
+        <p class="section-description">
+            A simple anime-focused website created for entertainment,
+            creativity and sharing anime-related content.
+        </p>
+
+        <div class="about-box">
+
+            <p>
+                Welcome to REDARYAN. This website is created for fun
+                and entertainment purposes. Here you can explore
+                anime wallpapers, anime stories and other
+                anime-related content.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENTS -->
+
+    <section id="contents">
+
+        <h2 class="section-title">
+            Explore <span>Contents</span>
+        </h2>
+
+        <p class="section-description">
+            Choose a category and explore the anime world.
+        </p>
+
+
+        <div class="cards">
+
+
+            <!-- WALLPAPER -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🖼️
+                </div>
+
+                <h3>
+                    Anime Wallpapers
+                </h3>
+
+                <p>
+                    Explore anime wallpapers and
+                    discover new backgrounds.
+                </p>
+
+                <a href="./animewallpaper.html">
+                    Explore →
+                </a>
+
+            </div>
+
+
+            <!-- STORIES -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📖
+                </div>
+
+                <h3>
+                    Anime Stories
+                </h3>
+
+                <p>
+                    Read interesting anime-related
+                    stories and adventures.
+                </p>
+
+                <a href="./animestory.html">
+                    Read Stories →
+                </a>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📩
+                </div>
+
+                <h3>
+                    Contact Me
+                </h3>
+
+                <p>
+                    Have a question or suggestion?
+                    Get in touch with me.
+                </p>
+
+                <a href="./Contact.html">
+                    Contact →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026
+        <strong>REDARYAN</strong>
+        — Anime World
+
+    </footer>
+
 </body>
 </html>
+```
