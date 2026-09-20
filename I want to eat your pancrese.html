@@ -1,18 +1,582 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Want To Eat Your Pancrease</title>
+
+    <title>I Want to Eat Your Pancreas | REDARYAN</title>
+
+    <style>
+
+        /* RESET */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        /* BODY */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(5, 5, 15, 0.78),
+                    rgba(5, 5, 15, 0.95)
+                ),
+                url("./Wall paper 3.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(10, 10, 20, 0.7);
+            backdrop-filter: blur(15px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.1);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            color: #00ff88;
+
+            text-shadow:
+                0 0 10px #00ff88,
+                0 0 25px #00ff88;
+        }
+
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            width: 90%;
+            max-width: 1050px;
+            margin: 70px auto;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 68px);
+            margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #00ff88,
+                    #00cfff
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .hero p {
+            color: #aaa;
+            font-size: 17px;
+        }
+
+
+        /* POSTER */
+
+        .poster-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+
+        .poster {
+            width: min(450px, 100%);
+
+            border-radius: 22px;
+
+            border:
+                1px solid rgba(255,255,255,0.15);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.55);
+
+            transition: 0.4s;
+        }
+
+
+        .poster:hover {
+            transform: scale(1.02);
+
+            box-shadow:
+                0 0 35px rgba(0,255,136,0.25);
+        }
+
+
+        /* STORY BOX */
+
+        .story-box {
+            padding: 40px;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            backdrop-filter: blur(15px);
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            border-radius: 22px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .story-box h2 {
+            color: #00ff88;
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .story-box p {
+            color: #ddd;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+        }
+
+
+        /* INFORMATION CARDS */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 18px;
+
+            margin-top: 30px;
+        }
+
+
+        .info-card {
+            padding: 22px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+
+        .info-card span {
+            display: block;
+
+            color: #00ff88;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .info-card strong {
+            color: white;
+        }
+
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            margin-top: 40px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .button {
+            padding: 13px 25px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .primary {
+            background: #00ff88;
+
+            color: #050505;
+
+            box-shadow:
+                0 0 15px rgba(0,255,136,0.25);
+        }
+
+
+        .primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 25px rgba(0,255,136,0.6);
+        }
+
+
+        .secondary {
+            border:
+                1px solid #00ff88;
+
+            color: #00ff88;
+        }
+
+
+        .secondary:hover {
+            background: #00ff88;
+
+            color: #050505;
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.5);
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 80px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: #777;
+
+            background:
+                rgba(0,0,0,0.45);
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+        }
+
+
+        footer strong {
+            color: #00ff88;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 50px auto;
+            }
+
+            .story-box {
+                padding: 25px 20px;
+            }
+
+            .story-box p {
+                font-size: 15px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-    <img src="./i want to eat your pancrease.webp">
-    <hr>
-    <p>:- An aloof boy comes across a book in a hospital waiting room. He soon discovers that it is a diary kept by his very popular classmate who reveals to him that she is secretly suffering from a fatal pancreatic illness.</p>
-    <hr>
-    <ul>
-        <li><a href="https://bollyflix.meme/i-want-to-eat-your-pancreas-2018-dual-audio-english-japanese-movie/">Download Link</a></li>
-        <li><a href="./animestory.html">Back</a></li>
-    </ul>
-    </body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            REDARYAN
+        </div>
+
+        <div>
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./animestory.html">
+                Stories
+            </a>
+
+            <a href="./animewallpaper.html">
+                Wallpapers
+            </a>
+
+            <a href="./Contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <!-- TITLE -->
+
+        <div class="hero">
+
+            <h1>
+                I Want to Eat Your Pancreas
+            </h1>
+
+            <p>
+                A story about friendship, memories and the value of time.
+            </p>
+
+        </div>
+
+
+
+        <!-- POSTER -->
+
+        <div class="poster-box">
+
+            <img
+                class="poster"
+                src="./i want to eat your pancrease.webp"
+                alt="I Want to Eat Your Pancreas"
+            >
+
+        </div>
+
+
+
+        <!-- STORY -->
+
+        <section class="story-box">
+
+            <h2>
+                About the Story
+            </h2>
+
+            <p>
+                An introverted high-school boy discovers a diary
+                belonging to his popular classmate, Sakura Yamauchi.
+                Through the diary, he learns that Sakura is living
+                with a serious illness that she has kept secret
+                from most of the people around her.
+
+                <br><br>
+
+                Although the two seem very different, their
+                unexpected friendship gradually changes both of
+                their lives. As they spend more time together,
+                they begin to appreciate ordinary moments in a
+                completely different way.
+
+                <br><br>
+
+                The story explores friendship, human connection,
+                memories and the importance of appreciating the
+                time we have with the people around us.
+            </p>
+
+
+            <!-- INFORMATION -->
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <span>
+                        Type
+                    </span>
+
+                    <strong>
+                        Movie
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>
+                        Genre
+                    </span>
+
+                    <strong>
+                        Drama
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>
+                        Studio
+                    </span>
+
+                    <strong>
+                        Studio VOLN
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>
+                        Release
+                    </span>
+
+                    <strong>
+                        2018
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <a
+                class="button primary"
+                href="./animestory.html"
+            >
+                ← All Stories
+            </a>
+
+
+            <a
+                class="button secondary"
+                href="./index.html"
+            >
+                Back to Home
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026
+        <strong>REDARYAN</strong>
+        — Anime World
+
+    </footer>
+
+
+</body>
+
 </html>
+```
