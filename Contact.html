@@ -1,32 +1,552 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact page</title>
+
+    <title>Contact | REDARYAN</title>
+
+    <style>
+
+        /* RESET */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        /* BODY */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(5, 5, 15, 0.75),
+                    rgba(5, 5, 15, 0.92)
+                ),
+                url("./Wall paper 3.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(10, 10, 20, 0.65);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            color: #00ff88;
+
+            text-shadow:
+                0 0 10px #00ff88,
+                0 0 25px #00ff88;
+        }
+
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 80px auto;
+        }
+
+
+        /* TITLE */
+
+        .title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+
+        .title h1 {
+            font-size: clamp(40px, 7vw, 65px);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    white,
+                    #00ff88,
+                    #00cfff
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 15px;
+        }
+
+
+        .title p {
+            color: #aaa;
+            font-size: 17px;
+        }
+
+
+        /* CONTACT CARDS */
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+
+            margin-bottom: 70px;
+        }
+
+
+        .contact-card {
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.07);
+
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 20px;
+
+            transition: 0.35s;
+        }
+
+
+        .contact-card:hover {
+
+            transform: translateY(-10px);
+
+            border-color: #00ff88;
+
+            box-shadow:
+                0 0 30px rgba(0,255,136,0.2);
+        }
+
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+
+        .contact-card h2 {
+            margin-bottom: 10px;
+        }
+
+
+        .contact-card p {
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+
+        .contact-card a {
+
+            display: inline-block;
+
+            padding: 10px 20px;
+
+            border-radius: 25px;
+
+            background: #00ff88;
+
+            color: #050505;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .contact-card a:hover {
+
+            transform: scale(1.05);
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.6);
+        }
+
+
+        /* PERSONAL DETAILS */
+
+        .details {
+
+            padding: 35px;
+
+            background: rgba(255,255,255,0.07);
+
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 20px;
+        }
+
+
+        .details h2 {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            color: #00ff88;
+        }
+
+
+        .details-list {
+
+            list-style: none;
+
+            max-width: 600px;
+
+            margin: auto;
+        }
+
+
+        .details-list li {
+
+            padding: 18px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.1);
+
+            color: #ddd;
+
+            font-size: 17px;
+        }
+
+
+        .details-list li:last-child {
+            border-bottom: none;
+        }
+
+
+        .label {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+
+        /* BACK BUTTON */
+
+        .back {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 50px auto 20px;
+
+            padding: 13px 28px;
+
+            border: 1px solid #00ff88;
+
+            border-radius: 30px;
+
+            color: #00ff88;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        .back:hover {
+
+            background: #00ff88;
+
+            color: #050505;
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.5);
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #777;
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+
+            background: rgba(0,0,0,0.4);
+        }
+
+
+        footer strong {
+            color: #00ff88;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 50px auto;
+            }
+
+            .details {
+                padding: 25px 20px;
+            }
+        }
+
+    </style>
 </head>
+
+
 <body>
-    <h1>contact Details :-</h1>
-<hr>
-<ul>
-    <li><a href="tel:+91">Phone no</a></li>
-    <li><a href="mailto:aryanbhaiytgaming@gmail.com">Gmail</a></li>
-    <li><a href="https://www.instagram.com/redaryan_/">Instagram</a></li>
-</ul>
-<hr>
-<h2>My details :-</h2>
 
-<p>
-    <ul>
-        <li>
-            Name :- Red Aryan
-        </li>
-        <li>Class :- 12th</li>
-        <li>NEXT MOVE :- NOTHING </li>
 
-    </ul>
-</p>
-<hr>
-<a href="./index.html">Back To Homepage</a>
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            REDARYAN
+        </div>
+
+        <div>
+            <a href="./index.html">Home</a>
+            <a href="#details">About</a>
+        </div>
+
+    </nav>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+
+        <!-- TITLE -->
+
+        <div class="title">
+
+            <h1>
+                Contact Me
+            </h1>
+
+            <p>
+                Have a question, suggestion, or just want to say hello?
+            </p>
+
+        </div>
+
+
+
+        <!-- CONTACT OPTIONS -->
+
+        <div class="contact-grid">
+
+
+            <!-- PHONE -->
+
+            <div class="contact-card">
+
+                <div class="icon">
+                    📞
+                </div>
+
+                <h2>
+                    Phone
+                </h2>
+
+                <p>
+                    Contact me directly
+                </p>
+
+                <a href="tel:+91">
+                    Call Now
+                </a>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-card">
+
+                <div class="icon">
+                    ✉️
+                </div>
+
+                <h2>
+                    Gmail
+                </h2>
+
+                <p>
+                    Send me an email
+                </p>
+
+                <a href="mailto:aryanbhaiytgaming@gmail.com">
+                    Email Me
+                </a>
+
+            </div>
+
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="contact-card">
+
+                <div class="icon">
+                    📸
+                </div>
+
+                <h2>
+                    Instagram
+                </h2>
+
+                <p>
+                    Follow me on Instagram
+                </p>
+
+                <a
+                    href="https://www.instagram.com/redaryan_/"
+                    target="_blank"
+                >
+                    Visit Profile
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PERSONAL DETAILS -->
+
+        <section class="details" id="details">
+
+            <h2>
+                My Details
+            </h2>
+
+            <ul class="details-list">
+
+                <li>
+                    <span class="label">Name:</span>
+                    Red Aryan
+                </li>
+
+                <li>
+                    <span class="label">Class:</span>
+                    12th
+                </li>
+
+                <li>
+                    <span class="label">Next Move:</span>
+                    Nothing
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- BACK -->
+
+        <a
+            class="back"
+            href="./index.html"
+        >
+            ← Back to Homepage
+        </a>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026
+        <strong>REDARYAN</strong>
+        — Anime World
+
+    </footer>
+
+
 </body>
 </html>
+```
+
