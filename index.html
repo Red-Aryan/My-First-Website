@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,6 @@
     <title>REDARYAN | Anime World</title>
 
     <style>
-        /* =========================
-           RESET
-        ========================= */
         * {
             margin: 0;
             padding: 0;
@@ -22,20 +20,14 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b12;
-            color: #ffffff;
+            background: #08090d;
+            color: white;
             line-height: 1.6;
-            transition: 0.3s;
-        }
-
-        body.light {
-            background: #f5f5f7;
-            color: #111;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
         button,
@@ -46,41 +38,39 @@
         /* =========================
            NAVBAR
         ========================= */
+
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
+            height: 70px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 15px 6%;
+            padding: 0 6%;
 
-            background: rgba(10, 10, 18, 0.85);
+            background: rgba(8, 9, 13, 0.9);
             backdrop-filter: blur(15px);
 
             border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
 
-        body.light .navbar {
-            background: rgba(255,255,255,0.85);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            z-index: 1000;
         }
 
         .logo {
-            font-size: 25px;
+            font-size: 26px;
             font-weight: 900;
             letter-spacing: 2px;
-            color: #ff304f;
+            color: #ff3150;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
             align-items: center;
+            gap: 28px;
         }
 
         .nav-links a {
@@ -88,26 +78,21 @@
             transition: 0.3s;
         }
 
-        body.light .nav-links a {
-            color: #333;
-        }
-
         .nav-links a:hover {
-            color: #ff304f;
+            color: #ff3150;
         }
 
-        .nav-buttons {
+        .nav-actions {
             display: flex;
             gap: 10px;
         }
 
         .icon-btn {
+            background: none;
             border: none;
-            background: transparent;
-            color: inherit;
+            color: white;
             cursor: pointer;
             font-size: 20px;
-            padding: 7px;
         }
 
         .menu-btn {
@@ -117,6 +102,7 @@
         /* =========================
            HERO
         ========================= */
+
         .hero {
             min-height: 100vh;
 
@@ -128,25 +114,11 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(5,5,10,0.95),
-                    rgba(5,5,10,0.55),
-                    rgba(5,5,10,0.9)
+                    rgba(5,6,10,0.96),
+                    rgba(5,6,10,0.7),
+                    rgba(5,6,10,0.4)
                 ),
-                url("https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1800&q=80");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        body.light .hero {
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.92),
-                    rgba(255,255,255,0.65),
-                    rgba(255,255,255,0.85)
-                ),
-                url("https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1800&q=80");
+                url("./home page 4.jpg");
 
             background-size: cover;
             background-position: center;
@@ -158,12 +130,16 @@
 
         .hero-tag {
             display: inline-block;
-            padding: 7px 15px;
-            border: 1px solid #ff304f;
-            border-radius: 50px;
-            color: #ff304f;
+
+            padding: 7px 16px;
             margin-bottom: 20px;
-            font-size: 14px;
+
+            border: 1px solid #ff3150;
+            border-radius: 50px;
+
+            color: #ff3150;
+            font-size: 13px;
+            font-weight: bold;
         }
 
         .hero h1 {
@@ -173,18 +149,14 @@
         }
 
         .hero h1 span {
-            color: #ff304f;
+            color: #ff3150;
         }
 
         .hero p {
-            font-size: 18px;
             color: #ccc;
+            font-size: 18px;
             max-width: 600px;
             margin-bottom: 30px;
-        }
-
-        body.light .hero p {
-            color: #333;
         }
 
         .hero-buttons {
@@ -195,38 +167,36 @@
 
         .btn {
             display: inline-block;
-            border: none;
-            cursor: pointer;
+
             padding: 13px 24px;
+
             border-radius: 8px;
+
             font-weight: bold;
+
             transition: 0.3s;
         }
 
         .btn-primary {
-            background: #ff304f;
+            background: #ff3150;
             color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,48,79,0.3);
+            box-shadow: 0 10px 30px rgba(255,49,80,0.3);
         }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
             color: white;
-            border: 1px solid rgba(255,255,255,0.15);
-        }
-
-        body.light .btn-secondary {
-            color: #111;
-            background: rgba(0,0,0,0.05);
         }
 
         /* =========================
-           SECTION
+           SECTIONS
         ========================= */
+
         section {
             padding: 90px 7%;
         }
@@ -237,171 +207,247 @@
         }
 
         .section-title h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            margin-bottom: 8px;
         }
 
         .section-title p {
-            color: #999;
+            color: #888;
         }
 
         /* =========================
            SEARCH
         ========================= */
-        .search-area {
+
+        .search-container {
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
         }
 
-        .search-box {
+        #searchInput {
             width: 100%;
+
             padding: 16px 20px;
 
             border-radius: 50px;
+
             border: 1px solid #333;
 
-            background: #15151f;
+            background: #13151b;
             color: white;
 
             outline: none;
         }
 
-        body.light .search-box {
-            background: white;
-            color: #111;
-            border-color: #ddd;
+        #searchInput:focus {
+            border-color: #ff3150;
         }
 
-        .categories {
+        /* =========================
+           FILTERS
+        ========================= */
+
+        .filters {
             display: flex;
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
+
             margin-bottom: 40px;
         }
 
-        .category {
-            padding: 8px 16px;
-            border-radius: 30px;
+        .filter {
+            padding: 9px 17px;
+
+            border-radius: 50px;
+
             border: 1px solid #333;
+
             background: transparent;
-            color: inherit;
+            color: #ccc;
+
             cursor: pointer;
+
+            transition: 0.3s;
         }
 
-        .category.active,
-        .category:hover {
-            background: #ff304f;
-            border-color: #ff304f;
+        .filter:hover,
+        .filter.active {
+            background: #ff3150;
+            border-color: #ff3150;
             color: white;
         }
 
         /* =========================
-           CARDS
+           ANIME CARDS
         ========================= */
-        .cards {
+
+        .anime-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
             gap: 25px;
         }
 
-        .card {
+        .anime-card {
             overflow: hidden;
+
             border-radius: 15px;
 
-            background: #15151f;
+            background: #12141a;
+
             border: 1px solid rgba(255,255,255,0.08);
 
             transition: 0.3s;
         }
 
-        body.light .card {
-            background: white;
-            border-color: #ddd;
-        }
-
-        .card:hover {
+        .anime-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.4);
         }
 
-        .card-image {
-            height: 230px;
+        .anime-card img {
             width: 100%;
+            height: 270px;
+
             object-fit: cover;
+
+            display: block;
         }
 
-        .card-content {
+        .card-body {
             padding: 20px;
         }
 
-        .card-content h3 {
-            margin-bottom: 8px;
+        .card-body h3 {
+            font-size: 21px;
+            margin-bottom: 7px;
         }
 
-        .card-content p {
-            color: #999;
+        .card-body p {
+            color: #888;
             font-size: 14px;
             margin-bottom: 18px;
         }
 
-        .card-actions {
+        .card-buttons {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .small-btn {
-            padding: 8px 13px;
-            border-radius: 6px;
+        .view-btn {
+            padding: 9px 15px;
+
             border: none;
-            cursor: pointer;
-            background: #ff304f;
+            border-radius: 6px;
+
+            background: #ff3150;
             color: white;
+
+            cursor: pointer;
         }
 
-        .bookmark {
-            background: transparent;
-            color: #aaa;
-            font-size: 20px;
+        .bookmark-btn {
+            background: none;
+            border: none;
+
+            color: #888;
+
+            font-size: 23px;
+
+            cursor: pointer;
         }
 
-        .bookmark.saved {
-            color: #ff304f;
+        .bookmark-btn.saved {
+            color: #ff3150;
         }
 
         /* =========================
            ABOUT
         ========================= */
+
         .about {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 60px;
+
             align-items: center;
         }
 
-        .about-image {
+        .about img {
             width: 100%;
+
+            max-height: 500px;
+
+            object-fit: cover;
+
             border-radius: 20px;
         }
 
         .about-text h2 {
-            font-size: 42px;
+            font-size: 45px;
+
             margin-bottom: 20px;
         }
 
         .about-text p {
-            color: #aaa;
-            margin-bottom: 15px;
+            color: #999;
+
+            margin-bottom: 16px;
         }
 
-        body.light .about-text p {
-            color: #555;
+        /* =========================
+           QUICK LINKS
+        ========================= */
+
+        .quick-links {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 18px;
+        }
+
+        .quick-link {
+            padding: 25px;
+
+            border-radius: 12px;
+
+            background: #12141a;
+
+            border: 1px solid #252832;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .quick-link:hover {
+            border-color: #ff3150;
+            transform: translateY(-5px);
+        }
+
+        .quick-link h3 {
+            margin-bottom: 7px;
+        }
+
+        .quick-link p {
+            color: #888;
+            font-size: 14px;
         }
 
         /* =========================
            FAQ
         ========================= */
+
         .faq {
             max-width: 800px;
             margin: auto;
@@ -409,32 +455,39 @@
 
         .faq-item {
             margin-bottom: 12px;
-            border: 1px solid #292936;
-            border-radius: 10px;
-            overflow: hidden;
-        }
 
-        body.light .faq-item {
-            border-color: #ddd;
+            border: 1px solid #292c35;
+
+            border-radius: 10px;
+
+            overflow: hidden;
         }
 
         .faq-question {
             width: 100%;
+
             padding: 18px;
-            background: transparent;
-            border: none;
-            color: inherit;
-            cursor: pointer;
 
             display: flex;
             justify-content: space-between;
+
+            background: transparent;
+
+            border: none;
+
+            color: white;
+
+            cursor: pointer;
+
             text-align: left;
         }
 
         .faq-answer {
             display: none;
+
             padding: 0 18px 18px;
-            color: #999;
+
+            color: #888;
         }
 
         .faq-item.open .faq-answer {
@@ -444,15 +497,15 @@
         /* =========================
            FOOTER
         ========================= */
-        footer {
-            padding: 50px 7%;
-            text-align: center;
-            background: #07070c;
-            color: #888;
-        }
 
-        body.light footer {
-            background: #111;
+        footer {
+            padding: 55px 7%;
+
+            text-align: center;
+
+            background: #05060a;
+
+            color: #777;
         }
 
         footer .logo {
@@ -461,88 +514,9 @@
         }
 
         /* =========================
-           MODAL
-        ========================= */
-        .modal {
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-
-            display: none;
-            align-items: center;
-            justify-content: center;
-
-            background: rgba(0,0,0,0.8);
-            padding: 20px;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-box {
-            width: min(700px, 100%);
-            max-height: 90vh;
-            overflow-y: auto;
-
-            background: #15151f;
-            border-radius: 20px;
-            padding: 25px;
-            position: relative;
-        }
-
-        body.light .modal-box {
-            background: white;
-        }
-
-        .modal-close {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-
-            border: none;
-            background: transparent;
-            color: inherit;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        /* =========================
-           TOAST
-        ========================= */
-        .toast {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 3000;
-
-            background: #ff304f;
-            color: white;
-
-            padding: 13px 20px;
-            border-radius: 8px;
-
-            transform: translateY(100px);
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* =========================
            MOBILE
         ========================= */
+
         @media(max-width: 800px) {
 
             .menu-btn {
@@ -551,20 +525,19 @@
 
             .nav-links {
                 position: absolute;
+
                 top: 70px;
                 left: 0;
+
                 width: 100%;
 
                 display: none;
+
                 flex-direction: column;
 
                 padding: 25px;
 
-                background: #101018;
-            }
-
-            body.light .nav-links {
-                background: white;
+                background: #0c0d12;
             }
 
             .nav-links.show {
@@ -577,7 +550,6 @@
 
             .hero {
                 text-align: center;
-                justify-content: center;
             }
 
             .hero-buttons {
@@ -587,7 +559,9 @@
     </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVBAR
@@ -595,21 +569,38 @@
 
 <nav class="navbar">
 
-    <a href="#" class="logo">REDARYAN</a>
+    <a href="index.html" class="logo">
+        REDARYAN
+    </a>
 
     <div class="nav-links" id="navLinks">
+
         <a href="#home">Home</a>
-        <a href="#explore">Explore</a>
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
+
+        <a href="#anime">Anime</a>
+
+        <a href="animewallpaper.html">
+            Wallpapers
+        </a>
+
+        <a href="animestory.html">
+            Stories
+        </a>
+
+        <a href="Contact.html">
+            Contact
+        </a>
+
     </div>
 
-    <div class="nav-buttons">
-        <button class="icon-btn" id="themeBtn">☀️</button>
+    <div class="nav-actions">
 
-        <button class="icon-btn menu-btn" id="menuBtn">
+        <button
+            class="icon-btn menu-btn"
+            id="menuBtn">
             ☰
         </button>
+
     </div>
 
 </nav>
@@ -624,27 +615,32 @@
     <div class="hero-content">
 
         <div class="hero-tag">
-            ✦ ENTER THE ANIME WORLD
+            ✦ WELCOME TO REDARYAN
         </div>
 
         <h1>
-            Welcome to
-            <span>REDARYAN</span>
+            Enter the
+            <span>Anime World</span>
         </h1>
 
         <p>
-            Discover anime wallpapers, stories, characters,
-            collections and a world created for anime lovers.
+            Discover anime stories, wallpapers,
+            characters and unforgettable worlds.
+            Explore the REDARYAN collection.
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#explore" class="btn btn-primary">
-                Explore Now
+            <a
+                href="#anime"
+                class="btn btn-primary">
+                Explore Anime
             </a>
 
-            <a href="#about" class="btn btn-secondary">
-                Learn More
+            <a
+                href="animewallpaper.html"
+                class="btn btn-secondary">
+                Wallpapers
             </a>
 
         </div>
@@ -655,56 +651,147 @@
 
 
 <!-- =========================
-     EXPLORE
+     ANIME COLLECTION
 ========================= -->
 
-<section id="explore">
+<section id="anime">
 
     <div class="section-title">
 
-        <h2>Explore</h2>
+        <h2>Anime Collection</h2>
 
         <p>
-            Discover something new from the REDARYAN collection.
+            Explore your favourite anime worlds.
         </p>
 
     </div>
 
 
-    <div class="search-area">
+    <!-- SEARCH -->
+
+    <div class="search-container">
 
         <input
             type="text"
             id="searchInput"
-            class="search-box"
-            placeholder="Search anime, stories, wallpapers..."
+            placeholder="Search anime..."
         >
 
     </div>
 
 
-    <div class="categories">
+    <!-- FILTER -->
 
-        <button class="category active" data-category="all">
+    <div class="filters">
+
+        <button
+            class="filter active"
+            data-filter="all">
             All
         </button>
 
-        <button class="category" data-category="wallpaper">
-            Wallpapers
+        <button
+            class="filter"
+            data-filter="movie">
+            Movies
         </button>
 
-        <button class="category" data-category="story">
+        <button
+            class="filter"
+            data-filter="story">
             Stories
         </button>
 
-        <button class="category" data-category="character">
-            Characters
+        <button
+            class="filter"
+            data-filter="wallpaper">
+            Wallpapers
         </button>
 
     </div>
 
 
-    <div class="cards" id="cards"></div>
+    <!-- CARDS -->
+
+    <div
+        class="anime-grid"
+        id="animeGrid">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUICK LINKS
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Explore More</h2>
+
+        <p>
+            Jump directly into your favourite section.
+        </p>
+
+    </div>
+
+
+    <div class="quick-links">
+
+        <a
+            href="animewallpaper.html"
+            class="quick-link">
+
+            <h3>🖼️ Wallpapers</h3>
+
+            <p>
+                Explore anime wallpapers.
+            </p>
+
+        </a>
+
+
+        <a
+            href="animestory.html"
+            class="quick-link">
+
+            <h3>📖 Anime Stories</h3>
+
+            <p>
+                Read anime stories.
+            </p>
+
+        </a>
+
+
+        <a
+            href="yourname.html"
+            class="quick-link">
+
+            <h3>🌌 Your Name</h3>
+
+            <p>
+                Open the Your Name page.
+            </p>
+
+        </a>
+
+
+        <a
+            href="silent voice.html"
+            class="quick-link">
+
+            <h3>🎧 A Silent Voice</h3>
+
+            <p>
+                Open A Silent Voice.
+            </p>
+
+        </a>
+
+    </div>
 
 </section>
 
@@ -718,12 +805,13 @@
     <div class="about">
 
         <div>
+
             <img
-                class="about-image"
-                src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1000&q=80"
-                alt="Anime artwork"
-            >
+                src="./home page 4.jpg"
+                alt="REDARYAN">
+
         </div>
+
 
         <div class="about-text">
 
@@ -732,18 +820,20 @@
             </h2>
 
             <p>
-                REDARYAN is an anime-inspired digital world
-                designed for discovering stories, characters,
-                wallpapers and creative collections.
+                Welcome to REDARYAN, an anime-focused
+                collection featuring movies, stories,
+                wallpapers and more.
             </p>
 
             <p>
-                Explore the collection, save your favourite
-                content and discover something new every day.
+                Browse the collection and open the
+                individual pages to explore each anime.
             </p>
 
-            <a href="#explore" class="btn btn-primary">
-                Start Exploring
+            <a
+                href="Contact.html"
+                class="btn btn-primary">
+                Contact
             </a>
 
         </div>
@@ -761,10 +851,10 @@
 
     <div class="section-title">
 
-        <h2>Frequently Asked Questions</h2>
+        <h2>FAQ</h2>
 
         <p>
-            Everything you need to know.
+            Frequently asked questions.
         </p>
 
     </div>
@@ -775,14 +865,19 @@
         <div class="faq-item">
 
             <button class="faq-question">
+
                 What is REDARYAN?
+
                 <span>+</span>
+
             </button>
 
             <div class="faq-answer">
-                REDARYAN is an anime-themed website for
-                exploring stories, wallpapers, characters
-                and creative collections.
+
+                REDARYAN is an anime-themed website
+                containing anime pages, stories and
+                wallpapers.
+
             </div>
 
         </div>
@@ -791,14 +886,19 @@
         <div class="faq-item">
 
             <button class="faq-question">
-                Can I save my favourite items?
+
+                Where can I find wallpapers?
+
                 <span>+</span>
+
             </button>
 
             <div class="faq-answer">
-                Yes. Click the bookmark button on any card
-                to save it. Your bookmarks are stored
-                in your browser.
+
+                Open the Wallpapers section from
+                the navigation menu or the Explore
+                More section.
+
             </div>
 
         </div>
@@ -807,27 +907,18 @@
         <div class="faq-item">
 
             <button class="faq-question">
-                Does the website work on mobile?
+
+                Where are the anime stories?
+
                 <span>+</span>
+
             </button>
 
             <div class="faq-answer">
-                Yes. The layout automatically adapts
-                to phones, tablets and desktop screens.
-            </div>
 
-        </div>
+                You can open the Anime Stories page
+                using the Stories link.
 
-
-        <div class="faq-item">
-
-            <button class="faq-question">
-                Can I switch between dark and light mode?
-                <span>+</span>
-            </button>
-
-            <div class="faq-answer">
-                Yes. Use the theme button in the navigation bar.
             </div>
 
         </div>
@@ -848,55 +939,16 @@
     </div>
 
     <p>
-        Anime • Stories • Characters • Wallpapers
+        Anime • Stories • Wallpapers
     </p>
 
     <br>
 
     <p>
-        © 2026 REDARYAN. All rights reserved.
+        © 2026 REDARYAN
     </p>
 
 </footer>
-
-
-<!-- =========================
-     MODAL
-========================= -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-box">
-
-        <button class="modal-close" id="modalClose">
-            ×
-        </button>
-
-        <img
-            id="modalImage"
-            class="modal-image"
-            src=""
-            alt=""
-        >
-
-        <h2 id="modalTitle"></h2>
-
-        <br>
-
-        <p id="modalDescription"></p>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     TOAST
-========================= -->
-
-<div class="toast" id="toast">
-    Saved!
-</div>
 
 
 <!-- =========================
@@ -906,57 +958,90 @@
 <script>
 
     /* =========================
-       DATA
+       ANIME DATA
     ========================= */
 
-    const animeData = [
+    const anime = [
 
         {
-            id: 1,
+            title: "A Silent Voice",
+            category: "movie",
+            image: "./silentvoice.jpg",
+            description:
+                "Explore the A Silent Voice page.",
+            link: "./silent voice.html"
+        },
+
+        {
+            title: "Your Name",
+            category: "movie",
+            image: "./your name.webp",
+            description:
+                "Explore the Your Name page.",
+            link: "./yourname.html"
+        },
+
+        {
+            title: "5 Centimeters Per Second",
+            category: "movie",
+            image: "./5cm per second.jpg",
+            description:
+                "Explore the 5 Centimeters Per Second page.",
+            link: "./5cm Per second.html"
+        },
+
+        {
+            title: "Howl's Moving Castle",
+            category: "movie",
+            image: "./Howls the moving castle.jpeg",
+            description:
+                "Explore Howl's Moving Castle.",
+            link: "./Howl.html"
+        },
+
+        {
+            title: "I Want to Eat Your Pancreas",
+            category: "movie",
+            image: "./i want to eat your pancrease.webp",
+            description:
+                "Explore I Want to Eat Your Pancreas.",
+            link: "./I want to eat your pancreas.html"
+        },
+
+        {
             title: "Anime Wallpapers",
             category: "wallpaper",
-            description: "Beautiful anime wallpapers for your desktop and mobile.",
-            image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=900&q=80"
+            image: "./Wall paper 1.jpg",
+            description:
+                "Explore the anime wallpaper collection.",
+            link: "./animewallpaper.html"
         },
 
         {
-            id: 2,
             title: "Anime Stories",
             category: "story",
-            description: "Explore mysterious and emotional anime-inspired stories.",
-            image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=900&q=80"
+            image: "./Wall paper 3.jpg",
+            description:
+                "Explore anime stories and collections.",
+            link: "./animestory.html"
         },
 
         {
-            id: 3,
-            title: "REDARYAN Collection",
+            title: "Wallpaper Collection",
             category: "wallpaper",
-            description: "A special collection of artwork selected for REDARYAN.",
-            image: "https://images.unsplash.com/photo-1560972550-aba3456b5564?auto=format&fit=crop&w=900&q=80"
+            image: "./Wall paper 6.jpg",
+            description:
+                "More anime wallpapers.",
+            link: "./animewallpaper.html"
         },
 
         {
-            id: 4,
-            title: "Character Gallery",
-            category: "character",
-            description: "Discover characters from different anime worlds.",
-            image: "https://images.unsplash.com/photo-1607604276583-eef5e7ca45f5?auto=format&fit=crop&w=900&q=80"
-        },
-
-        {
-            id: 5,
-            title: "Night Stories",
-            category: "story",
-            description: "Dark, mysterious stories for late-night anime fans.",
-            image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80"
-        },
-
-        {
-            id: 6,
-            title: "Wallpaper Packs",
+            title: "Anime Collection",
             category: "wallpaper",
-            description: "Anime-inspired wallpaper packs for your devices.",
-            image: "https://images.unsplash.com/photo-1541560052-77ec1bbc09f7?auto=format&fit=crop&w=900&q=80"
+            image: "./Wall paper 7.jpeg",
+            description:
+                "Explore another anime wallpaper.",
+            link: "./animewallpaper.html"
         }
 
     ];
@@ -966,83 +1051,66 @@
        VARIABLES
     ========================= */
 
-    const cardsContainer =
-        document.getElementById("cards");
+    const grid =
+        document.getElementById("animeGrid");
 
-    const searchInput =
+    const search =
         document.getElementById("searchInput");
 
-    const categoryButtons =
-        document.querySelectorAll(".category");
-
-    const modal =
-        document.getElementById("modal");
-
-    const modalImage =
-        document.getElementById("modalImage");
-
-    const modalTitle =
-        document.getElementById("modalTitle");
-
-    const modalDescription =
-        document.getElementById("modalDescription");
-
-    const toast =
-        document.getElementById("toast");
+    const filters =
+        document.querySelectorAll(".filter");
 
 
-    let currentCategory = "all";
+    let currentFilter = "all";
 
 
     /* =========================
-       BOOKMARKS
+       RENDER
     ========================= */
 
-    let bookmarks =
-        JSON.parse(
-            localStorage.getItem("redaryan-bookmarks")
-        ) || [];
+    function renderAnime() {
+
+        const searchText =
+            search.value
+                .toLowerCase()
+                .trim();
 
 
-    /* =========================
-       RENDER CARDS
-    ========================= */
+        const filteredAnime =
+            anime.filter(item => {
 
-    function renderCards() {
-
-        const search =
-            searchInput.value.toLowerCase().trim();
+                const matchesFilter =
+                    currentFilter === "all" ||
+                    item.category === currentFilter;
 
 
-        const filtered =
-            animeData.filter(item => {
+                const matchesSearch =
+                    item.title
+                        .toLowerCase()
+                        .includes(searchText);
 
-                const categoryMatch =
-                    currentCategory === "all" ||
-                    item.category === currentCategory;
 
-                const searchMatch =
-                    item.title.toLowerCase().includes(search) ||
-                    item.description.toLowerCase().includes(search);
-
-                return categoryMatch && searchMatch;
+                return (
+                    matchesFilter &&
+                    matchesSearch
+                );
 
             });
 
 
-        cardsContainer.innerHTML = "";
+        grid.innerHTML = "";
 
 
-        if (filtered.length === 0) {
+        if (filteredAnime.length === 0) {
 
-            cardsContainer.innerHTML = `
+            grid.innerHTML = `
                 <p style="
-                    text-align:center;
                     grid-column:1/-1;
-                    color:#999;
-                    padding:40px;
+                    text-align:center;
+                    color:#888;
+                    padding:50px;
                 ">
-                    No results found.
+                    No anime found.
                 </p>
             `;
 
@@ -1050,27 +1118,24 @@
         }
 
 
-        filtered.forEach(item => {
-
-            const saved =
-                bookmarks.includes(item.id);
-
+        filteredAnime.forEach(item => {
 
             const card =
-                document.createElement("article");
+                document.createElement("div");
 
-            card.className = "card";
+            card.className =
+                "anime-card";
 
 
             card.innerHTML = `
 
                 <img
-                    class="card-image"
                     src="${item.image}"
                     alt="${item.title}"
+                    loading="lazy"
                 >
 
-                <div class="card-content">
+                <div class="card-body">
 
                     <h3>
                         ${item.title}
@@ -1080,23 +1145,18 @@
                         ${item.description}
                     </p>
 
-                    <div class="card-actions">
+                    <div class="card-buttons">
+
+                        <a
+                            href="${item.link}"
+                            class="view-btn">
+                            Open Page
+                        </a>
 
                         <button
-                            class="small-btn view-btn"
-                            data-id="${item.id}"
-                        >
-                            View
-                        </button>
-
-                        <button
-                            class="icon-btn bookmark ${
-                                saved ? "saved" : ""
-                            }"
-                            data-id="${item.id}"
-                            title="Bookmark"
-                        >
-                            ${saved ? "♥" : "♡"}
+                            class="bookmark-btn"
+                            title="Bookmark">
+                            ♡
                         </button>
 
                     </div>
@@ -1105,7 +1165,26 @@
             `;
 
 
-            cardsContainer.appendChild(card);
+            const bookmark =
+                card.querySelector(".bookmark-btn");
+
+
+            bookmark.addEventListener(
+                "click",
+                () => {
+
+                    bookmark.classList.toggle("saved");
+
+                    bookmark.textContent =
+                        bookmark.classList.contains("saved")
+                            ? "♥"
+                            : "♡";
+
+                }
+            );
+
+
+            grid.appendChild(card);
 
         });
 
@@ -1116,217 +1195,37 @@
        SEARCH
     ========================= */
 
-    searchInput.addEventListener(
+    search.addEventListener(
         "input",
-        renderCards
+        renderAnime
     );
 
 
     /* =========================
-       CATEGORY FILTER
+       FILTER
     ========================= */
 
-    categoryButtons.forEach(button => {
+    filters.forEach(button => {
 
-        button.addEventListener("click", () => {
-
-            categoryButtons.forEach(btn =>
-                btn.classList.remove("active")
-            );
-
-            button.classList.add("active");
-
-            currentCategory =
-                button.dataset.category;
-
-            renderCards();
-
-        });
-
-    });
-
-
-    /* =========================
-       CARD BUTTONS
-    ========================= */
-
-    cardsContainer.addEventListener(
-        "click",
-        event => {
-
-            const button =
-                event.target.closest("button");
-
-            if (!button) return;
-
-
-            const id =
-                Number(button.dataset.id);
-
-
-            const item =
-                animeData.find(
-                    anime => anime.id === id
-                );
-
-
-            if (!item) return;
-
-
-            /* VIEW */
-
-            if (
-                button.classList.contains("view-btn")
-            ) {
-
-                modalImage.src =
-                    item.image;
-
-                modalTitle.textContent =
-                    item.title;
-
-                modalDescription.textContent =
-                    item.description;
-
-                modal.classList.add("show");
-
-            }
-
-
-            /* BOOKMARK */
-
-            if (
-                button.classList.contains("bookmark")
-            ) {
-
-                if (bookmarks.includes(id)) {
-
-                    bookmarks =
-                        bookmarks.filter(
-                            bookmarkId =>
-                                bookmarkId !== id
-                        );
-
-                    showToast("Removed from bookmarks");
-
-                } else {
-
-                    bookmarks.push(id);
-
-                    showToast("Added to bookmarks");
-
-                }
-
-
-                localStorage.setItem(
-                    "redaryan-bookmarks",
-                    JSON.stringify(bookmarks)
-                );
-
-
-                renderCards();
-
-            }
-
-        }
-    );
-
-
-    /* =========================
-       MODAL CLOSE
-    ========================= */
-
-    document
-        .getElementById("modalClose")
-        .addEventListener(
+        button.addEventListener(
             "click",
             () => {
 
-                modal.classList.remove("show");
+                filters.forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+                button.classList.add("active");
+
+                currentFilter =
+                    button.dataset.filter;
+
+                renderAnime();
 
             }
         );
 
-
-    modal.addEventListener(
-        "click",
-        event => {
-
-            if (event.target === modal) {
-
-                modal.classList.remove("show");
-
-            }
-
-        }
-    );
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    function showToast(message) {
-
-        toast.textContent =
-            message;
-
-        toast.classList.add("show");
-
-
-        setTimeout(() => {
-
-            toast.classList.remove("show");
-
-        }, 2000);
-
-    }
-
-
-    /* =========================
-       DARK / LIGHT MODE
-    ========================= */
-
-    const themeBtn =
-        document.getElementById("themeBtn");
-
-
-    themeBtn.addEventListener(
-        "click",
-        () => {
-
-            document.body.classList.toggle("light");
-
-
-            const light =
-                document.body.classList.contains("light");
-
-
-            themeBtn.textContent =
-                light ? "🌙" : "☀️";
-
-
-            localStorage.setItem(
-                "redaryan-theme",
-                light ? "light" : "dark"
-            );
-
-        }
-    );
-
-
-    /* Load saved theme */
-
-    if (
-        localStorage.getItem("redaryan-theme")
-        === "light"
-    ) {
-
-        document.body.classList.add("light");
-
-        themeBtn.textContent = "🌙";
-
-    }
+    });
 
 
     /* =========================
@@ -1348,24 +1247,6 @@
 
         }
     );
-
-
-    /* Close mobile menu */
-
-    navLinks
-        .querySelectorAll("a")
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    navLinks.classList.remove("show");
-
-                }
-            );
-
-        });
 
 
     /* =========================
@@ -1402,12 +1283,14 @@
 
 
     /* =========================
-       INITIAL LOAD
+       START
     ========================= */
 
-    renderCards();
+    renderAnime();
 
 </script>
 
 </body>
 </html>
+
+      
