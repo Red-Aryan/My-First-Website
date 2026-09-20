@@ -1,6 +1,6 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
             background-attachment: fixed;
         }
 
-        /* NAVBAR */
+        /* ================= NAVBAR ================= */
 
         nav {
             width: 100%;
@@ -80,8 +80,20 @@
             text-shadow: 0 0 10px #00ff88;
         }
 
+        /* MOBILE MENU BUTTON */
 
-        /* HERO SECTION */
+        .menu-toggle {
+            display: none;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: white;
+            font-size: 24px;
+            padding: 7px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* ================= HERO ================= */
 
         .hero {
             min-height: 85vh;
@@ -154,8 +166,7 @@
                 0 0 25px rgba(0,255,136,0.8);
         }
 
-
-        /* GENERAL SECTION */
+        /* ================= GENERAL SECTION ================= */
 
         section {
             padding: 90px 7%;
@@ -179,8 +190,7 @@
             line-height: 1.7;
         }
 
-
-        /* ABOUT */
+        /* ================= ABOUT ================= */
 
         .about-box {
             max-width: 900px;
@@ -205,8 +215,7 @@
             line-height: 1.8;
         }
 
-
-        /* CONTENT CARDS */
+        /* ================= CONTENT CARDS ================= */
 
         .cards {
             display: grid;
@@ -265,8 +274,7 @@
             font-weight: bold;
         }
 
-
-        /* FOOTER */
+        /* ================= FOOTER ================= */
 
         footer {
             text-align: center;
@@ -284,8 +292,92 @@
             color: #00ff88;
         }
 
+        /* ================= JAVASCRIPT STYLES ================= */
 
-        /* MOBILE */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #backToTop {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #00ff88;
+            color: #050505;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            transition: 0.3s;
+
+            z-index: 999;
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.45);
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .toast {
+            position: fixed;
+
+            left: 50%;
+            bottom: 25px;
+
+            transform: translate(-50%, 80px);
+
+            padding: 13px 22px;
+
+            border-radius: 30px;
+
+            background: rgba(10,10,20,0.9);
+
+            border: 1px solid rgba(0,255,136,0.4);
+
+            color: white;
+
+            backdrop-filter: blur(12px);
+
+            opacity: 0;
+
+            transition: 0.35s;
+
+            z-index: 2000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* ================= MOBILE ================= */
 
         @media (max-width: 700px) {
 
@@ -297,12 +389,39 @@
                 font-size: 21px;
             }
 
+            .menu-toggle {
+                display: block;
+            }
+
             nav ul {
-                gap: 12px;
+                position: absolute;
+
+                top: 100%;
+                left: 0;
+
+                width: 100%;
+
+                padding: 18px 5%;
+
+                display: none;
+
+                flex-direction: column;
+                gap: 18px;
+
+                background: rgba(10,10,20,0.96);
+
+                backdrop-filter: blur(15px);
+
+                border-bottom:
+                    1px solid rgba(255,255,255,0.1);
+            }
+
+            nav ul.open {
+                display: flex;
             }
 
             nav ul li a {
-                font-size: 12px;
+                font-size: 14px;
             }
 
             section {
@@ -316,14 +435,17 @@
             .hero p {
                 font-size: 15px;
             }
+
+            .section-title {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 
-
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- ================= NAVIGATION ================= -->
 
     <nav>
 
@@ -331,7 +453,15 @@
             REDARYAN
         </div>
 
-        <ul>
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu">
+            ☰
+        </button>
+
+        <ul id="navMenu">
+
             <li>
                 <a href="#home">Home</a>
             </li>
@@ -345,16 +475,19 @@
             </li>
 
             <li>
-                <a href="./Contact.html">Contact</a>
+                <a href="./Contact.html">
+                    Contact
+                </a>
             </li>
+
         </ul>
 
     </nav>
 
 
-    <!-- HERO -->
+    <!-- ================= HERO ================= -->
 
-    <section class="hero" id="home">
+    <section class="hero reveal" id="home">
 
         <div class="hero-content">
 
@@ -381,9 +514,9 @@
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- ================= ABOUT ================= -->
 
-    <section id="about">
+    <section id="about" class="reveal">
 
         <h2 class="section-title">
             About <span>REDARYAN</span>
@@ -408,9 +541,9 @@
     </section>
 
 
-    <!-- CONTENTS -->
+    <!-- ================= CONTENTS ================= -->
 
-    <section id="contents">
+    <section id="contents" class="reveal">
 
         <h2 class="section-title">
             Explore <span>Contents</span>
@@ -423,10 +556,9 @@
 
         <div class="cards">
 
-
             <!-- WALLPAPER -->
 
-            <div class="card">
+            <div class="card reveal">
 
                 <div class="card-icon">
                     🖼️
@@ -450,7 +582,7 @@
 
             <!-- STORIES -->
 
-            <div class="card">
+            <div class="card reveal">
 
                 <div class="card-icon">
                     📖
@@ -474,7 +606,7 @@
 
             <!-- CONTACT -->
 
-            <div class="card">
+            <div class="card reveal">
 
                 <div class="card-icon">
                     📩
@@ -500,16 +632,199 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
-        © 2026
-        <strong>REDARYAN</strong>
+        © <span id="year"></span>
+
+        <strong>
+            REDARYAN
+        </strong>
+
         — Anime World
 
     </footer>
 
+
+    <!-- BACK TO TOP -->
+
+    <button id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
+
+    <!-- TOAST -->
+
+    <div id="toast" class="toast"></div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* ================= MOBILE MENU ================= */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navMenu =
+            document.getElementById("navMenu");
+
+
+        menuToggle.addEventListener("click", () => {
+
+            navMenu.classList.toggle("open");
+
+            if (navMenu.classList.contains("open")) {
+
+                menuToggle.textContent = "✕";
+
+            } else {
+
+                menuToggle.textContent = "☰";
+
+            }
+
+        });
+
+
+        /* CLOSE MENU WHEN LINK IS CLICKED */
+
+        document
+            .querySelectorAll("#navMenu a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navMenu.classList.remove("open");
+
+                    menuToggle.textContent = "☰";
+
+                });
+
+            });
+
+
+        /* ================= SCROLL REVEAL ================= */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        function revealOnScroll() {
+
+            revealElements.forEach(element => {
+
+                const position =
+                    element.getBoundingClientRect().top;
+
+                const windowHeight =
+                    window.innerHeight;
+
+
+                if (position < windowHeight - 80) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
+
+
+        window.addEventListener(
+            "load",
+            revealOnScroll
+        );
+
+
+        /* ================= BACK TO TOP ================= */
+
+        const backToTop =
+            document.getElementById("backToTop");
+
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 400) {
+
+                backToTop.classList.add("show");
+
+            } else {
+
+                backToTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+
+        /* ================= TOAST MESSAGE ================= */
+
+        const toast =
+            document.getElementById("toast");
+
+
+        function showToast(message) {
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+
+            setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 2500);
+
+        }
+
+
+        /* EXPLORE BUTTON */
+
+        const exploreButton =
+            document.querySelector(".hero .btn");
+
+
+        exploreButton.addEventListener("click", () => {
+
+            showToast(
+                "Welcome to REDARYAN Anime World ✨"
+            );
+
+        });
+
+
+        /* ================= DYNAMIC YEAR ================= */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+    </script>
+
 </body>
+
 </html>
-```
